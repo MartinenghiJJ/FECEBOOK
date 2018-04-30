@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Document sans titre</title>
+<link rel="stylesheet" type="text/css" href="signin.css" media="all" />
+<!--
+ 
+ 
+}
+-->
+</style></head>
+<body>
+ 
+ 
+ 
+<form name="" id="" action="Traitement.php" method="post" >
+<form method="post" action="Traitement.php">
+ 
+ 
+ 
+<fieldset>
+       <legend>Vos coordonnées</legend> <!-- Titre du fieldset -->
+ 
+       <p><strong>Civilité:</strong>
+     <label for="label"></label>
+<br />
+       <label for="Mr"></label>
+       <input type="radio" name="civilité" value="Mr" id="Mr" />
+       <label for="label">Mr</label>
+<br />
+       <label for="Mme">
+       <input type="radio" name="civilité" value="Mme" id="Mme" />
+       Mme</label><br />
+       <input type="radio" name="civilité" value="Mlle" id="Mlle" /> <label for="Mlle">Mlle</label><br />
+  </p>
+ 
+ 
+ 
+ 
+<p><label><strong>Nom </strong>:</label>
+<input type="text" name="nom" id="nom" value="" /></p>
+<p><label><strong>Pr&eacute;nom</strong> :</label>
+  <input type="text" name="prenom" id="prenom" value="" />
+</p>
+<p><label><strong>Adresse : </strong>:</label>
+<input name="adresse" type="text" id="nom" value="" size="50" />
+</p>
+<form method="post" action="traitement.php">
+   <p>
+     <label><strong>cp : </strong>:</label>
+     <input type="text" name="cp" id="cp" value="" />
+       <p><label></label>
+       <label><strong>Ville: </strong>:</label>
+     <input type="text" name="Ville" id="Ville" value="" />
+       </p>
+       <p><label><strong>Nom et prénom du parrain</strong> :</label>
+  <input name="parrain" type="text" id="parrain" value="" size="40" />
+</p>
+<p>
+     <br />
+   </fieldset>
+ 
+   <fieldset>
+       <legend>Votre projet</legend> <!-- Titre du fieldset -->
+ 
+ 
+ 
+       <p>
+           <label for="precisions"></label><br />
+           <textarea name="precisions" id="precisions" cols="40" rows="4" tabindex="80"></textarea>
+       </p>
+   </fieldset>
+ 
+ 
+     <br />
+   </p>
+</form>
+ 
+ 
+ 
+  <input type="submit" name="valider" id="valider" value="Enregistrer" />
+ 
+</p>
+</body>
+</html>
