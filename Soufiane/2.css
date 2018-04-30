@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+h1{
+	
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"
+	
+}
+#question{
+	position: absolute;
+	width: 600px;
+	height: 250px;
+	
+}
+
+#answer{
+	position: absolute;
+	left: 400px;
+	height: 150px;
+	
+}
+
+div.centre {
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: -100px; /* Cette valeur doit être la moitié négative de la valeur du width */
+    margin-top: -100px; /* Cette valeur doit être la moitié négative de la valeur du height */
+}
