@@ -1,0 +1,7 @@
+html { 
+  margin:0;
+  padding:0;
+  background: url(C:\Users\annea\Desktop\PJ WEB 2018\background.jpg) no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
