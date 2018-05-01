@@ -1,0 +1,141 @@
+.stylish-form 
+    {
+        position: fixed; 
+ top: 0; 
+ left: 0; 
+ /* Préserve le ratio de l'image */
+ min-width: 100%;
+ min-height: 100%;
+      
+                    background-image: url(ECE_censored.jpg);
+                    background-size:cover;
+    }
+    .stylish-form h2 {
+      color:#555;
+      margin-top:50px;
+      font-weight: bold
+      
+    }
+    .stylish-form h3 {
+      color:#fff;
+      margin-top:50px;
+      font-weight: bold
+}
+          
+    .font_white {
+      color:#00B0A0 !important;
+    }
+    .mar20 
+    {
+      margin:20px;
+    }
+    .inner-section {
+      background-image: url(PJWEB.jpg);
+      width:350px;
+      display:block;
+      margin:0 auto;
+    }
+    .inner-section2 {
+      background-image: url(fonfRegistre.jpg);
+      width: 500px;
+      display:block;
+      margin: auto;
+    }
+    
+    .inner-section3 {
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 500px;
+      display:block;
+      margin: auto;
+    }
+
+    .inside-form{
+      border-radius:8px;
+      padding-top:30px;
+      padding-bottom:30px;
+    }
+    .inside-form h2 {
+      font-weight:700;
+    }
+    .inside-form ul {
+      list-style-type:none;
+      text-align:center;
+      margin-top:30px;
+    }
+    .inside-form ul >li {
+      display:inline-block;
+    }
+    .inside-form ul >li > i {
+      margin-top:18px;
+    }
+    .icon-holder {
+      background: #fff;
+      border-radius: 50%;
+      vertical-align: middle;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      margin-right: 20px;
+    }
+
+    .dsp-flex {
+      display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+      display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox; /* TWEENER - IE 10 */
+      display: -webkit-flex; /* NEW - Chrome */
+      display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      align-items: center;
+      -webkit-align-items: center;
+      justify-content: center
+    }
+    .input-group, .form-group {
+      margin-bottom: 2px;
+      color: #ffd;
+    }
+    .input-group-addon {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      border-radius:25px;
+    }
+    .form-control,.form-control:focus,.form-control:hover
+    {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffd;
+      border-radius:25px;
+      border:none;
+      font-size:14px;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #555 !important;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: #555 !important;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+      color: #fff !important;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: #fff !important;
+    }
+    .footer {
+      margin-top:40px;
+      margin-bottom:40px;
+    }
+    input::placeholder {
+      color: #555 !important;
+    }
+    .btn-lg {
+      font-size: 1em;
+      border-radius: 0.25rem;
+      padding: 15px 48px;
+    }
+    .btn-round {
+      border-width: 1px;
+      border-radius: 30px !important;
+      padding: 11px 23px;
+    }
+    .btn-neutral,.btn-neutral:focus,.btn-neutral:hover {
+      background-color: #FFFFFF;
+      color: #00B0A0;
+    }
