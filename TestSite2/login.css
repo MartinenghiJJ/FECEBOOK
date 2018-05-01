@@ -1,14 +1,15 @@
 .stylish-form 
     {
         position: fixed; 
- top: 0; 
- left: 0; 
- /* Préserve le ratio de l'image */
- min-width: 100%;
- min-height: 100%;
-      
-                    background-image: url(ECE_censored.jpg);
-                    background-size:cover;
+        top: 0; 
+        left: 0; 
+        /* Préserve le ratio de l'image */
+        min-width: 100%;
+        min-height: 100%;
+        background-image: url(ECE_censored.jpg);
+        background-size:cover;
+        }
+        
     }
     .stylish-form h2 {
       color:#555;
@@ -17,7 +18,7 @@
       
     }
     .stylish-form h3 {
-      color:#fff;
+      color:#555;
       margin-top:50px;
       font-weight: bold
 }
@@ -43,7 +44,7 @@
     }
     
     .inner-section3 {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-image: url(ECE.jpg);
       width: 500px;
       display:block;
       margin: auto;
@@ -69,7 +70,7 @@
       margin-top:18px;
     }
     .icon-holder {
-      background: #fff;
+      background: #555;
       border-radius: 50%;
       vertical-align: middle;
       height: 50px;
@@ -136,6 +137,11 @@
       padding: 11px 23px;
     }
     .btn-neutral,.btn-neutral:focus,.btn-neutral:hover {
-      background-color: #FFFFFF;
+      background-color: #555;
       color: #00B0A0;
     }
+    a
+{
+color: white;
+text-decoration: none;
+}
