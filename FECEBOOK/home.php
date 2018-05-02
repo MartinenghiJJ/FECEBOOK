@@ -32,17 +32,6 @@ include("auth.php");
     $profil= mysqli_fetch_assoc($result);  
 ?>
     
-    <?php
-    require("db.php");
-
-        $username= $_SESSION['username'];
-
-
-        $query3="SELECT `contenu`,`idAuteur` FROM `news`,`ami`, `users` WHERE `news`.idAuteur = `ami`.user2 AND `users`.`username`='$username' AND `ami`.user1 = '$username' AND (`news`.`statut` = `ami`.`state` OR `news`.`statut` ='pas_ami')";
-        $result3= mysqli_query($con, $query3);
-        
-?>
-    
     
     
 
@@ -85,7 +74,7 @@ include("auth.php");
     <div class="col-sm-3 well">
       <div class="well">
         <p><a href="#"><?php echo $_SESSION['username']; ?></a></p>
-        <img src=<?php echo "image/".implode($profil) ?> height="100" width="100" alt="Avatar">
+        <img src=<?php echo "image/".implode($profil) ?> height="200" width="200" alt="Avatar">
          
           
           
@@ -96,9 +85,6 @@ include("auth.php");
         <p><strong>Ey!</strong></p>
         People are looking at your profile. Find out who.
       </div>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-7">
     
@@ -124,26 +110,9 @@ include("auth.php");
                             <textarea rows="5" cols="80" name="contenu" id="post_textarea"></textarea>
                              
                          </div>
-                        <input type="checkbox" id="prive" name="prive" value="prive"/> <label>Mode Ami</label><br>  
+                        <input type="checkbox" id="prive" name="prive" value="prive"/> <label>Mode Ami</label><br>
                         <input type="submit" id="envoyer" name="envoyer" value="envoyer">
-                    </form><br>
-                 <?php   while($row2 = $result3->fetch_assoc())
-                    {
-                        echo("<div class='row'>
-                                <div class='col-sm-3'>
-                                    <div class='well'>
-                                        <p>".$row2['idAuteur']."</p>                                
-                                    </div>
-                                </div>
-                              <div class='col-sm-9'>
-                                <div class='well'>
-                                    <p>".$row2['contenu'] ."</p>
-                                </div>
-                            </div>
-                            </div>");
-
-             
-                   } ?>
+                    </form>
                 
                 
             </div>

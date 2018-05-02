@@ -102,7 +102,7 @@ VALUES ('$username', '".md5($password)."', '$email', '$nom', '$prenom', '$adress
 						<label>Email</label>
 						<input type="text" placeholder="Email" name ="email" class="form-control" required>
 					</div>
-					<button type="submit" class="btn btn-lg btn-info center-block">Ajouter</button>					
+					<button href ="ajouterpost.php" type="submit" class="btn btn-lg btn-info center-block">Ajouter</button>					
 					</div>
 				</form> 
 				</div>
