@@ -81,6 +81,28 @@ include("auth.php");
     ?>
     
     
+    <?php
+    
+    require("db.php");
+    $username= $_SESSION['username'];
+    $query4="SELECT * FROM `ami` WHERE (user1='$username' and user2='$user')";;
+    $result4= mysqli_query($con, $query4);
+    $row4 = $result4->fetch_assoc();
+    
+    
+    
+    
+    
+    ?>
+    
+    <?php
+    $query5="SELECT * FROM `demande_ami` WHERE (user_from='$username' and user_to='$user')";;
+    $result5= mysqli_query($con, $query5);
+    $row5 = $result5->fetch_assoc();
+    
+    ?>
+    
+    
    
     
     
@@ -135,19 +157,51 @@ include("auth.php");
           
           
       </div>
-      
-      <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-          
-        <p><strong>Ey!</strong></p>
-        People are looking at your profile. Find out who.
-      </div>
-      <p><a href="#">Link</a></p>
-        
-         <form class='navbar-form navbar-right' action='demandeami.php?user=<?=$user?>' method='post' autocomplete='off'>
+            <p><a href="#">Link</a></p>
+    
+                <?php                   
+                if(isset($row4['user2']))
+                {   
+                    
+                    
+                        echo("<form class='navbar-form navbar-right' action='supprimerami.php?user=$user' method='post' autocomplete='off'>
+                        <input name ='demande' type='submit' class='btn btn-primary' value='Supprimer Ami'/>  
+                        </form>");
+                        
+                    
+                    
+                }
+                
+                else
+                {
+                    if(isset($row5['user_from']))
+                    {
+                        echo ("<div class='alert alert-success fade in'>
+                                <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+                                <p><strong>Demande en attente</strong></p>
+                                </div>");
+                    }
+                    else
+                    {
+                        
+                    
+                    echo("<form class='navbar-form navbar-right' action='demandeami.php?user=$user' method='post' autocomplete='off'>
+                    <input name ='demande' type='submit' class='btn btn-primary' value='Ajouter Ami'/>  
+                    </form>");
+                    }
+                }
+                
+             
+                
+                
+    
+                ?>
             
-            <input name ="demande" type="submit" class="btn btn-primary" value="Ajouter Ami"/>  
-        </form>
+        
+         
+        
+      
+    
         
     </div>
     <div class="col-sm-7">

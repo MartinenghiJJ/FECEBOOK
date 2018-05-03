@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 03 mai 2018 à 17:16
+-- Généré le :  jeu. 03 mai 2018 à 19:34
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `ami` (
   `user1` varchar(50) NOT NULL,
   `user2` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `ami`
@@ -59,8 +59,8 @@ INSERT INTO `ami` (`Id`, `user1`, `user2`) VALUES
 (2, 'Andronek', 'Sousou'),
 (3, 'JJLaBuche', 'Andronek'),
 (4, 'Sousou', 'Andronek'),
-(7, 'JJLaBuche', 'Sousou'),
-(8, 'Sousou', 'JJLaBuche');
+(11, 'Chien', 'JJLaBuche'),
+(12, 'JJLaBuche', 'Chien');
 
 -- --------------------------------------------------------
 
@@ -89,14 +89,15 @@ CREATE TABLE IF NOT EXISTS `demande_ami` (
   `user_from` varchar(50) NOT NULL,
   `user_to` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `demande_ami`
 --
 
 INSERT INTO `demande_ami` (`id`, `user_from`, `user_to`) VALUES
-(5, 'Chat', 'Sousou');
+(5, 'Chat', 'Sousou'),
+(10, 'JJLaBuche', 'Chat');
 
 -- --------------------------------------------------------
 
