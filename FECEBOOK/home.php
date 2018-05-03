@@ -32,6 +32,16 @@ include("auth.php");
     $profil= mysqli_fetch_assoc($result);  
 ?>
     
+    <?php
+    require("db.php");
+
+        $username= $_SESSION['username'];
+
+
+        $query3="SELECT contenu FROM `news` WHERE (news.idAuteur='$username')";
+        $result3= mysqli_query($con, $query3);
+    ?>
+    
     
     
 
@@ -49,18 +59,16 @@ include("auth.php");
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        
       </ul>
-      <form class="navbar-form navbar-right" role="search">
+      <form action ="recherche.php" class="navbar-form navbar-right" method = "post">
         <div class="form-group input-group">
-          <input type="text" class="form-control" placeholder="Search..">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>        
-        </div>
-      </form>
+          <input name="search" type="text" class="form-control" placeholder="Search... "/>
+            <span class="input-group-btn">
+          <input type="submit" class="btn btn-default" value="Search"/>
+            </span>
+           </div>
+          </form>
       <ul class="nav navbar-nav navbar-right">
           <li><a href="home.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username']; ?></a></li>
         <li><a href="Logout.php"><span class="glyphicon glyphicon glyphicon-off"></span> Logout</a></li>  
@@ -88,18 +96,7 @@ include("auth.php");
     </div>
     <div class="col-sm-7">
     
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default text-left">
-            <div class="panel-body">
-              <p contenteditable="true">Status: Feeling Blue</p>
-              <button type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Like
-              </button>     
-            </div>
-          </div>
-        </div>
-      </div>
+      
         <div class="col-sm-9">
 
             <div class="div_post_submit">
@@ -113,6 +110,38 @@ include("auth.php");
                         <input type="checkbox" id="prive" name="prive" value="prive"/> <label>Mode Ami</label><br>
                         <input type="submit" id="envoyer" name="envoyer" value="envoyer">
                     </form>
+                    <form action="ajouterimage.php" method="post">
+                    
+                    <input type="file" name ="photo" id="photo">
+                    
+                    <input type="submit" id="upload" name="upload" value="upload">
+                    </form><br>
+                
+                    <?php   while($row2 = $result3->fetch_assoc())
+                    {
+                        echo("<div class='row'>
+                                <div class='col-sm-3'>
+                                    <div class='well'>
+                                        <p>".$username ."</p>
+                                        
+                                    </div>
+                                </div>
+                              <div class='col-sm-9'>
+                                <div class='well'>
+                                    <p>".$row2['contenu'] ."</p>
+                                    <button type='button' class='btn btn-default btn-sm'>
+                                    <span class='glyphicon glyphicon-thumbs-up'></span> Like
+                                    </button>
+                                        
+                                    <button type='button' class='btn btn-default btn-sm'>
+                                    <span class='glyphicon glyphicon glyphicon-pencil'></span> Comment
+                                    </button>    
+                                </div>
+                            </div>
+                            </div>");
+
+             
+                   } ?>
                 
                 
             </div>
@@ -132,8 +161,6 @@ include("auth.php");
   </div>
 </div>
 
-<footer class="container-fluid footer">
-  <p>Footer Text</p>
-</footer>
+
 </body>
 </html>

@@ -63,20 +63,22 @@ include("auth.php");
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        
         <li class="active"><a href="public.php">Réseau</a></li>
         <li class="active"><a href="albumphoto.php">Album</a></li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
+        
+        <!-- ICI --> 
+       <form action ="recherche.php" class="navbar-form navbar-right" method = "post">
         <div class="form-group input-group">
-          <input type="text" class="form-control" placeholder="Search..">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>        
-        </div>
-      </form>
+          <input name="search" type="text" class="form-control" placeholder="Search... "/>
+            <span class="input-group-btn">
+          <input type="submit" class="btn btn-default" value="Search"/>
+            </span>
+           </div>
+          </form> 
+
+          
       <ul class="nav navbar-nav navbar-right">
           <li><a href="home.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username']; ?></a></li>
         <li><a href="Logout.php"><span class="glyphicon glyphicon glyphicon-off"></span> Logout</a></li>  

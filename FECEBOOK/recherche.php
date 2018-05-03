@@ -30,7 +30,41 @@ include("auth.php");
     $query = "SELECT `profil` FROM `users` WHERE username='$username'";
     $result =mysqli_query($con, $query);
     $profil= mysqli_fetch_assoc($result);  
-?>
+    ?>
+    
+    
+    
+    
+    <?php
+    include "db.php";
+    
+
+    $output = '';
+
+    if(isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $search = preg_replace("#[^0-9a-z]i#","", $search);
+
+    $query = "SELECT username, profil FROM users WHERE username LIKE '%$search%'";
+    $result = mysqli_query($con, $query) or die ("Could not search");
+    $count = mysqli_num_rows($result);
+    
+    if($count == 0){
+      $output = "There was no search results!";
+
+    }else{
+
+      while ($row = mysqli_fetch_array($result)) {
+
+        $user = $row ['username'];
+        $profilr = $row['profil'];
+
+      }
+
+    }
+     
+    }      
+    ?>
     
     <?php
     require("db.php");
@@ -38,15 +72,19 @@ include("auth.php");
         $username= $_SESSION['username'];
 
 
-        $query3="SELECT contenu, idAuteur FROM `news` WHERE (news.statut='pas_ami' and news.idAuteur!='$username')";
+        $query3="SELECT contenu, idAuteur FROM `news` WHERE (news.idAuteur='$user')";;
         $result3= mysqli_query($con, $query3);
     ?>
+    
+    
+    
     
    
     
     
     
-
+    
+    
 
 
 <nav class="navbar navbar-inverse">
@@ -62,15 +100,21 @@ include("auth.php");
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         
+        <li class="active"><a href="public.php">Réseau</a></li>
+        <li class="active"><a href="albumphoto.php">Album</a></li>
       </ul>
-      <form action ="recherche.php" class="navbar-form navbar-right" method = "post">
+        
+        <!-- ICI --> 
+       <form action ="recherche.php" class="navbar-form navbar-right" method = "post">
         <div class="form-group input-group">
           <input name="search" type="text" class="form-control" placeholder="Search... "/>
             <span class="input-group-btn">
           <input type="submit" class="btn btn-default" value="Search"/>
             </span>
            </div>
-          </form>
+          </form> 
+
+          
       <ul class="nav navbar-nav navbar-right">
           <li><a href="home.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username']; ?></a></li>
         <li><a href="Logout.php"><span class="glyphicon glyphicon glyphicon-off"></span> Logout</a></li>  
@@ -83,8 +127,8 @@ include("auth.php");
   <div class="row">
     <div class="col-sm-3 well">
       <div class="well">
-        <p><a href="#"><?php echo $_SESSION['username']; ?></a></p>
-        <img src=<?php echo "image/".implode($profil) ?> height="100" width="100" alt="Avatar">
+        <p><a href="#"><?php echo $user; ?></a></p>
+        <img src=<?php echo "image/".$profilr ?> height="100" width="100" alt="Avatar">
          
           
           
@@ -92,12 +136,15 @@ include("auth.php");
       
       <div class="alert alert-success fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+          
         <p><strong>Ey!</strong></p>
         People are looking at your profile. Find out who.
       </div>
       <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+        <form action ="ajouterami.php" class="navbar-form navbar-right" method = "post">
+            <input type="submit" class="btn btn-primary" value="Ajouter Ami"/>  
+        </form>
+        
     </div>
     <div class="col-sm-7">
     
@@ -123,9 +170,9 @@ include("auth.php");
                     <form action="ajouterimage.php" method="post">
                     
                     <input type="file" name ="photo" id="photo">
-                    <input type="checkbox" id="prive" name="prive" value="prive"/> <label>Mode Ami</label>   
+                    
                     <input type="submit" id="upload" name="upload" value="upload">
-                </form><br>
+                    </form><br>
                  <?php   while($row2 = $result3->fetch_assoc())
                     {
                         echo("<div class='row'>
@@ -133,8 +180,13 @@ include("auth.php");
                                     <div class='well'>
                                         <p>".$row2['idAuteur']."</p>
                                         
+                                        
                                     </div>
                                 </div>
+                                
+                                
+                                
+                                
                               <div class='col-sm-9'>
                                 <div class='well'>
                                     <p>".$row2['contenu'] ."</p>
@@ -151,8 +203,7 @@ include("auth.php");
 
              
                    } ?>
-                
-                
+                                
             </div>
         </div>
         
