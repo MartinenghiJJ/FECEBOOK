@@ -30,7 +30,7 @@ include("auth.php");
     $query = "SELECT `profil` FROM `users` WHERE username='$username'";
     $result =mysqli_query($con, $query);
     $profil= mysqli_fetch_assoc($result);  
-    ?>
+?>
     
     <?php
     require("db.php");
@@ -38,17 +38,15 @@ include("auth.php");
         $username= $_SESSION['username'];
 
 
-        $query3="SELECT contenu, idAuteur FROM news INNER JOIN ami ON `news`.idAuteur = `ami`.user2 WHERE (`ami`.user1 = '$username'and news.statut='ami')";
+        $query3="SELECT contenu, idAuteur FROM `news` WHERE (news.statut='pas_ami' and news.idAuteur!='$username')";
         $result3= mysqli_query($con, $query3);
     ?>
-    
     
    
     
     
     
-    
-    
+
 
 
 <nav class="navbar navbar-inverse">
@@ -63,9 +61,7 @@ include("auth.php");
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li class="active"><a href="public.php">Réseau</a></li>
-        <li class="active"><a href="albumphoto.php">Album</a></li>
+        <li class="active"><a href="Fecebook.php">Home</a></li>
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group input-group">
@@ -129,9 +125,9 @@ include("auth.php");
                     <form action="ajouterimage.php" method="post">
                     
                     <input type="file" name ="photo" id="photo">
-                    
+                    <input type="checkbox" id="prive" name="prive" value="prive"/> <label>Mode Ami</label>   
                     <input type="submit" id="upload" name="upload" value="upload">
-                    </form><br>
+                </form><br>
                  <?php   while($row2 = $result3->fetch_assoc())
                     {
                         echo("<div class='row'>
@@ -139,13 +135,8 @@ include("auth.php");
                                     <div class='well'>
                                         <p>".$row2['idAuteur']."</p>
                                         
-                                        
                                     </div>
                                 </div>
-                                
-                                
-                                
-                                
                               <div class='col-sm-9'>
                                 <div class='well'>
                                     <p>".$row2['contenu'] ."</p>
@@ -162,7 +153,8 @@ include("auth.php");
 
              
                    } ?>
-                                
+                
+                
             </div>
         </div>
         
