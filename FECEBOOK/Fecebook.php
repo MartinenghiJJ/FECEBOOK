@@ -42,6 +42,16 @@ include("auth.php");
         $result3= mysqli_query($con, $query3);
     ?>
     
+    <?php
+    require("db.php");
+
+        $username= $_SESSION['username'];
+
+
+        $query4="SELECT user_from, user_to FROM demande_ami WHERE (`demande_ami`.user_to = '$username')";
+        $result4= mysqli_query($con, $query4);
+    ?>
+    
     
    
     
@@ -98,11 +108,27 @@ include("auth.php");
           
       </div>
       
-      <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        <p><strong>Ey!</strong></p>
-        People are looking at your profile. Find out who.
-      </div>
+      
+          
+        <?php
+            while($row3 = $result4->fetch_assoc())
+            {   
+                echo("
+                <div class='alert alert-success fade in'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+                <form class='navbar-form navbar-right' action='ajouterami.php?ami=".$row3['user_from'] ."&user=".$username."' method='post' autocomplete='off'>
+                <input name ='ajout' type='submit' class='btn btn-primary' value='Accepter'/>  
+                </form>
+                <p><strong>Ey!</strong></p>
+                Requete ami
+                <p>".$row3['user_from'] ."</p>
+                </div>");
+            }
+    
+    
+    
+        ?>
+      
       <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>

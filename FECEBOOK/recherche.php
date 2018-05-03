@@ -70,13 +70,15 @@ include("auth.php");
     require("db.php");
 
         $username= $_SESSION['username'];
+        
 
 
         $query3="SELECT contenu, idAuteur FROM `news` WHERE (news.idAuteur='$user')";;
         $result3= mysqli_query($con, $query3);
+    
+    
+    
     ?>
-    
-    
     
     
    
@@ -141,8 +143,10 @@ include("auth.php");
         People are looking at your profile. Find out who.
       </div>
       <p><a href="#">Link</a></p>
-        <form action ="ajouterami.php" class="navbar-form navbar-right" method = "post">
-            <input type="submit" class="btn btn-primary" value="Ajouter Ami"/>  
+        
+         <form class='navbar-form navbar-right' action='demandeami.php?user=<?=$user?>' method='post' autocomplete='off'>
+            
+            <input name ="demande" type="submit" class="btn btn-primary" value="Ajouter Ami"/>  
         </form>
         
     </div>

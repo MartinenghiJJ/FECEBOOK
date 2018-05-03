@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 03 mai 2018 à 04:46
+-- Généré le :  jeu. 03 mai 2018 à 17:16
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `ami` (
   `user1` varchar(50) NOT NULL,
   `user2` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `ami`
@@ -58,7 +58,9 @@ INSERT INTO `ami` (`Id`, `user1`, `user2`) VALUES
 (1, 'Andronek', 'JJLaBuche'),
 (2, 'Andronek', 'Sousou'),
 (3, 'JJLaBuche', 'Andronek'),
-(4, 'Sousou', 'Andronek');
+(4, 'Sousou', 'Andronek'),
+(7, 'JJLaBuche', 'Sousou'),
+(8, 'Sousou', 'JJLaBuche');
 
 -- --------------------------------------------------------
 
@@ -74,6 +76,27 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   `Contenu` text NOT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `demande_ami`
+--
+
+DROP TABLE IF EXISTS `demande_ami`;
+CREATE TABLE IF NOT EXISTS `demande_ami` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `user_from` varchar(50) NOT NULL,
+  `user_to` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `demande_ami`
+--
+
+INSERT INTO `demande_ami` (`id`, `user_from`, `user_to`) VALUES
+(5, 'Chat', 'Sousou');
 
 -- --------------------------------------------------------
 
