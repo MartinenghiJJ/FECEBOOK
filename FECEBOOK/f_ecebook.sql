@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 03 mai 2018 à 19:34
+-- Généré le :  ven. 04 mai 2018 à 02:42
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -71,10 +71,33 @@ INSERT INTO `ami` (`Id`, `user1`, `user2`) VALUES
 DROP TABLE IF EXISTS `commentaire`;
 CREATE TABLE IF NOT EXISTS `commentaire` (
   `Id` int(255) NOT NULL AUTO_INCREMENT,
-  `IdProf` int(255) NOT NULL,
-  `IdComment` int(255) NOT NULL,
+  `idPost` int(50) NOT NULL,
+  `pPost` varchar(50) NOT NULL,
+  `PComment` varchar(50) NOT NULL,
   `Contenu` text NOT NULL,
   PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commentaire`
+--
+
+INSERT INTO `commentaire` (`Id`, `idPost`, `pPost`, `PComment`, `Contenu`) VALUES
+(1, 5, 'Sousou', 'Andronek', 'AAA');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cv`
+--
+
+DROP TABLE IF EXISTS `cv`;
+CREATE TABLE IF NOT EXISTS `cv` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `pAuteur` varchar(50) NOT NULL,
+  `cv` varchar(50) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

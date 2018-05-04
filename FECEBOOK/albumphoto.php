@@ -61,7 +61,7 @@ include("auth.php");
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        
+        <li class="active"><a href="Fecebook.php">Home</a></li>
       </ul>
       <form action ="recherche.php" class="navbar-form navbar-right" method = "post">
         <div class="form-group input-group">
@@ -90,15 +90,7 @@ include("auth.php");
           
       </div>
       
-      <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        <p><strong>Ey!</strong></p>
-        People are looking at your profile. Find out who.
-      </div>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-    </div>
+      
     <div class="col-sm-7">
     
       <div class="row">
@@ -116,23 +108,21 @@ include("auth.php");
                  <?php   while($row2 = $result3->fetch_assoc())
                     {
                         echo("<div class='row'>
-                                <div class='col-sm-3'>
-                                    <div class='well'>
+                                <div class='col-sm-12'>
+                                    <div class='panel panel-default'>
+                                    <div class='panel-body'>
                                    <p>".$row2['idAuteur']."</p>
                                         
                                     </div>
-                                </div>
+                                
                         
-                              <div class='col-sm-9'>
-                                <div class='well'>
-                                 <img src=".$row2['photo'] ."   height='300' width='450'>  ;
+                              
+                                 <img src=".$row2['photo'] ."   height='300' width='450'>  
                                     <button type='button' class='btn btn-default btn-sm'>
                                     <span class='glyphicon glyphicon-thumbs-up'></span> Like
                                     </button>
                                         
-                                    <button type='button' class='btn btn-default btn-sm'>
-                                    <span class='glyphicon glyphicon glyphicon-pencil'></span> Comment
-                                    </button>    
+                                       
                                 </div>
                             </div>
                             </div>");

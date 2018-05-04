@@ -73,7 +73,7 @@ include("auth.php");
         
 
 
-        $query3="SELECT contenu, idAuteur FROM `news` WHERE (news.idAuteur='$user')";;
+        $query3="SELECT contenu, idAuteur, id FROM `news` WHERE (news.idAuteur='$user')";;
         $result3= mysqli_query($con, $query3);
     
     
@@ -152,12 +152,12 @@ include("auth.php");
     <div class="col-sm-3 well">
       <div class="well">
         <p><a href="#"><?php echo $user; ?></a></p>
-        <img src=<?php echo "image/".$profilr ?> height="100" width="100" alt="Avatar">
+        <img src=<?php echo "image/".$profilr ?> height="200" width="200" alt="Avatar">
          
           
           
       </div>
-            <p><a href="#">Link</a></p>
+            <p><a href="cv177.pdf">CV</a></p>
     
                 <?php                   
                 if(isset($row4['user2']))
@@ -223,41 +223,67 @@ include("auth.php");
                              
                          </div>
                         <input type="checkbox" id="prive" name="prive" value="prive"/> <label>Mode Ami</label><br>  
-                        <input type="submit" id="envoyer" name="envoyer" value="envoyer">
+                        <input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="envoyer">
                     </form><br>
                     <form action="ajouterimage.php" method="post">
                     
-                    <input type="file" name ="photo" id="photo">
+                    <input type="file" class="btn btn-primary" name ="photo" id="photo">
                     
-                    <input type="submit" id="upload" name="upload" value="upload">
+                    <input type="submit" class="btn btn-primary"id="upload" name="upload" value="upload">
                     </form><br>
                  <?php   while($row2 = $result3->fetch_assoc())
                     {
                         echo("<div class='row'>
-                                <div class='col-sm-3'>
-                                    <div class='well'>
+                                <div class='col-sm-12'>
+                                    <div class='panel panel-default'>
+                                    <div class='panel-body'>
                                         <p>".$row2['idAuteur']."</p>
                                         
                                         
                                     </div>
-                                </div>
+                                
+                                
+                            
                                 
                                 
                                 
                                 
-                              <div class='col-sm-9'>
-                                <div class='well'>
+                             
+                                    
                                     <p>".$row2['contenu'] ."</p>
                                     <button type='button' class='btn btn-default btn-sm'>
                                     <span class='glyphicon glyphicon-thumbs-up'></span> Like
                                     </button>
                                         
-                                    <button type='button' class='btn btn-default btn-sm'>
-                                    <span class='glyphicon glyphicon glyphicon-pencil'></span> Comment
-                                    </button>    
+                                    <button type='button' class='btn btn-default btn-sm' onclick='toggleForm()'>
+                                    <span class='glyphicon glyphicon glyphicon-pencil'></span> Comment</button> 
+                                    <form id='formulaire' method='POST' action='ajoutercommentaire.php?pAut=".$row2['idAuteur']."&id=".$row2['id']."'>
+                                    <textarea name='commentaire' class='formulaire'></textarea>
+                                    <input class='btn btn-primary' type='submit'/>
+                                    </form> 
                                 </div>
-                            </div>
-                            </div>");
+                                </div>
+                                </div>");
+                                
+                            
+                            
+                            
+                        $query5="SELECT Contenu, id, PComment FROM commentaire WHERE (idPost='".$row2['id']."')"; 
+                        $result5=mysqli_query($con, $query5);
+                        while($row5 = $result5->fetch_assoc())
+                            {
+                                 
+                                       echo(" <div class='col-sm-9'>
+                                        <div class='well'>
+                                        Commentaire : 
+                                        <p>".$row5['PComment']."</p>
+                                        <p>".$row5['Contenu']."</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                  ");
+                            }
 
              
                    } ?>
