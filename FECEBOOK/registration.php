@@ -37,21 +37,36 @@ if (isset($_REQUEST['username'])){
 	$statut = mysqli_real_escape_string($con,$statut);
 	$trn_date = date("Y-m-d H:i:s");
     
+    $query2="SELECT username FROM users where username = '$username' ";
+    $result2 = mysqli_query($con, $query2);
+    $row2 = $result2->fetch_assoc();
     
-    
-    
-    
-    
-    
-    
-        $query = "INSERT into `users` (username, password, email, nom, prenom, adresse, ville, profil, couverture, statut, trn_date)
-VALUES ('$username', '".md5($password)."', '$email', '$nom', '$prenom', '$adresse', '$ville', '$profil', '$couverture', '$statut', '$trn_date')";
-        $result = mysqli_query($con,$query);
-        if($result){
-            echo "<div class='form'>
-<h3>You are registered successfully.</h3>
-<br/>Click here to <a href='login.php'>Login</a></div>";
+        if(isset($row2['username']))
+        {
+            echo "<script>alert('Pseudo deja utilisé');
+            </script>
+            Click here to <a href='registration.php'>Retry</a>
+            ";
         }
+           else
+           {
+               $query = "INSERT into `users` (username, password, email, nom, prenom, adresse, ville, profil, couverture, statut, trn_date)
+            VALUES ('$username', '".md5($password)."', '$email', '$nom', '$prenom', '$adresse', '$ville', '$profil', '$couverture', '$statut', '$trn_date')";
+            $result = mysqli_query($con,$query);
+            if($result){
+            echo "<div class='form'>
+            <h3>You are registered successfully.</h3>
+            <br/>Click here to <a href='login.php'>Login</a></div>";
+        }
+           }
+    
+    
+    
+    
+    
+    
+    
+
     }else{
 ?>
     <div class="container-fluid stylish-form">
