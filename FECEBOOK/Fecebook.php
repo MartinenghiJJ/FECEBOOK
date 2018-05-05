@@ -168,14 +168,14 @@ include("auth.php");
                             <textarea rows="5" cols="80" name="contenu" id="post_textarea"></textarea>
                              
                          </div>
-                        <input type="checkbox"  id="prive" name="prive" value="prive"/> <label>Mode Ami</label><br>  
-                        <input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="envoyer">
+                        <input type="checkbox"  id="ami" name="ami" value="ami"/> <label>Mode Ami</label><br>  
+                        <input type="submit" class="btn btn-sm btn-primary" id="envoyer" name="envoyer" value="envoyer">
                     </form><br>
                     <form action="ajouterimage.php" method="post">
                     
-                    <input class="btn btn-primary"  type="file" name ="photo" id="photo">
+                    <input class="btn btn-sm btn-primary"  type="file" name ="photo" id="photo">
                     
-                    <input type="submit" class="btn btn-primary" id="upload" name="upload" value="upload">
+                    <input type="submit" class="btn btn-sm btn-primary" id="upload" name="upload" value="upload">
                     </form><br>
                  <?php   while($row2 = $result3->fetch_assoc())
                     {

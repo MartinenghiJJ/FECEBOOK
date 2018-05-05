@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 04 mai 2018 à 02:42
+-- Généré le :  sam. 05 mai 2018 à 13:02
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `ami` (
   `user1` varchar(50) NOT NULL,
   `user2` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `ami`
@@ -60,7 +60,11 @@ INSERT INTO `ami` (`Id`, `user1`, `user2`) VALUES
 (3, 'JJLaBuche', 'Andronek'),
 (4, 'Sousou', 'Andronek'),
 (11, 'Chien', 'JJLaBuche'),
-(12, 'JJLaBuche', 'Chien');
+(12, 'JJLaBuche', 'Chien'),
+(13, 'Chat', 'Andronek'),
+(14, 'Andronek', 'Chat'),
+(15, 'MarieR', 'Andronek'),
+(16, 'Andronek', 'MarieR');
 
 -- --------------------------------------------------------
 
@@ -76,14 +80,15 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   `PComment` varchar(50) NOT NULL,
   `Contenu` text NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `commentaire`
 --
 
 INSERT INTO `commentaire` (`Id`, `idPost`, `pPost`, `PComment`, `Contenu`) VALUES
-(1, 5, 'Sousou', 'Andronek', 'AAA');
+(1, 5, 'Sousou', 'Andronek', 'AAA'),
+(2, 3, 'Andronek', 'Andronek', 'Salut Andrej, comment tu vas ?');
 
 -- --------------------------------------------------------
 
@@ -112,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `demande_ami` (
   `user_from` varchar(50) NOT NULL,
   `user_to` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `demande_ami`
@@ -136,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `date` date NOT NULL,
   `statut` varchar(50) NOT NULL DEFAULT 'pas_ami',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `news`
@@ -150,7 +155,12 @@ INSERT INTO `news` (`id`, `idAuteur`, `contenu`, `date`, `statut`) VALUES
 (5, 'Sousou', 'Ceci est en mode public, Sousou', '2018-05-02', 'pas_ami'),
 (6, 'Sousou', 'Ceci est en mode ami', '2018-05-02', 'ami'),
 (13, 'Andronek', 'Andrej', '2018-05-03', 'pas_ami'),
-(12, 'Andronek', 'Test', '2018-05-03', 'pas_ami');
+(12, 'Andronek', 'Test', '2018-05-03', 'pas_ami'),
+(14, 'MarieR', 'Bonjour, je suis nouvelle Ã  l\\\'ECE\\r\\n', '2018-05-05', 'ami'),
+(15, 'Andronek', 'Je suis avec Marie', '2018-05-05', 'pas_ami'),
+(16, 'Andronek', 'A', '2018-05-05', 'pas_ami'),
+(17, 'MarieR', 'AAAA', '2018-05-05', 'pas_ami'),
+(18, 'Andronek', 'Andrej mode privÃ©', '2018-05-05', 'ami');
 
 -- --------------------------------------------------------
 
@@ -166,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `photo` (
   `date` date NOT NULL,
   `statut` varchar(20) NOT NULL DEFAULT 'ami',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `photo`
@@ -175,7 +185,8 @@ CREATE TABLE IF NOT EXISTS `photo` (
 INSERT INTO `photo` (`id`, `idAuteur`, `photo`, `date`, `statut`) VALUES
 (1, 'JJLaBuche', 'image/lunette.jpg', '2018-05-03', 'ami'),
 (2, 'JJLaBuche', 'image/plage.jpg', '2018-05-03', 'ami'),
-(3, 'JJLaBuche', 'image/montagne.jpg', '2018-05-03', 'ami');
+(3, 'JJLaBuche', 'image/montagne.jpg', '2018-05-03', 'ami'),
+(4, 'MarieR', 'image/montagne.jpg', '2018-05-05', 'ami');
 
 -- --------------------------------------------------------
 
@@ -198,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `statut` set('Etudiant','Professeur') NOT NULL,
   `trn_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -209,7 +220,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `nom`, `prenom`, `ad
 (2, 'JJLaBuche', 'jean-jacques.martinenghi@edu.ece.fr', '202cb962ac59075b964b07152d234b70', 'Martinenghi', 'Jean-Jacques', '71, rue du Theatre, 75015', 'Paris', 'jj.jpg', 'Tyrion.jpg', 'Etudiant', '2018-05-01 20:21:56'),
 (4, 'Sousou', 'soufiane.aksou@edu.ece.fr', '202cb962ac59075b964b07152d234b70', 'Aksou', 'Soufiane', '81, quai coti, 92300', 'St-Cloud', 'soufiane.jpg', 'liverpool.jpg', 'Etudiant', '2018-05-02 13:44:46'),
 (6, 'Chat', 'chat@edu.ece.fr', '202cb962ac59075b964b07152d234b70', 'Mr', 'Chat', '71, rue du Theatre', 'paris', 'chat.jpg', 'Tyrion.jpg', 'Etudiant', '2018-05-03 00:15:13'),
-(7, 'Chien', 'chien@edu.ece.fr', '202cb962ac59075b964b07152d234b70', 'Mr', 'Chien', '71, bla', 'paris', 'chien.jpg', 'Tyrion.jpg', 'Etudiant', '2018-05-03 04:02:26');
+(7, 'Chien', 'chien@edu.ece.fr', '202cb962ac59075b964b07152d234b70', 'Mr', 'Chien', '71, bla', 'paris', 'chien.jpg', 'Tyrion.jpg', 'Etudiant', '2018-05-03 04:02:26'),
+(8, 'MarieR', 'marie.rouilly@hotmail.fr', '202cb962ac59075b964b07152d234b70', 'Rouilly', 'Marie', '50 boulevard Garibaldi, 75015', 'Paris', 'marie.jpg', 'rail.jpg', 'Etudiant', '2018-05-05 00:38:06');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -165,7 +165,7 @@ include("auth.php");
                     
                     
                         echo("<form class='navbar-form navbar-right' action='supprimerami.php?user=$user' method='post' autocomplete='off'>
-                        <input name ='demande' type='submit' class='btn btn-primary' value='Supprimer Ami'/>  
+                        <input name ='demande' type='submit' class='btn btn-sm btn-danger' value='Supprimer Ami'/>  
                         </form>");
                         
                     
@@ -222,7 +222,7 @@ include("auth.php");
                             <textarea rows="5" cols="80" name="contenu" id="post_textarea"></textarea>
                              
                          </div>
-                        <input type="checkbox" id="prive" name="prive" value="prive"/> <label>Mode Ami</label><br>  
+                        <input type="checkbox"  id="ami" name="ami" value="ami"/> <label>Mode Ami</label><br>  
                         <input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="envoyer">
                     </form><br>
                     <form action="ajouterimage.php" method="post">

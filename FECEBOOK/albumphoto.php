@@ -91,6 +91,7 @@ include("auth.php");
       </div>
       
       
+    </div>
     <div class="col-sm-7">
     
       <div class="row">

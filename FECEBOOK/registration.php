@@ -33,15 +33,17 @@ if (isset($_REQUEST['username'])){
 	$profil = mysqli_real_escape_string($con,$profil);
     $couverture = stripslashes($_REQUEST['couverture']);
 	$couverture  = mysqli_real_escape_string($con,$couverture );
-
-
-
     $statut = stripslashes($_REQUEST['statut']);
 	$statut = mysqli_real_escape_string($con,$statut);
-
-
-
 	$trn_date = date("Y-m-d H:i:s");
+    
+    
+    
+    
+    
+    
+    
+    
         $query = "INSERT into `users` (username, password, email, nom, prenom, adresse, ville, profil, couverture, statut, trn_date)
 VALUES ('$username', '".md5($password)."', '$email', '$nom', '$prenom', '$adresse', '$ville', '$profil', '$couverture', '$statut', '$trn_date')";
         $result = mysqli_query($con,$query);

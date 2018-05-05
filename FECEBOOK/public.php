@@ -110,14 +110,14 @@ include("auth.php");
                             <textarea rows="5" cols="80" name="contenu" id="post_textarea"></textarea>
                              
                          </div>
-                        <input type="checkbox" id="prive" name="prive" value="prive"/> <label>Mode Ami</label><br>  
-                        <input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="envoyer">
+                       <input type="checkbox"  id="ami" name="ami" value="ami"/> <label>Mode Ami</label><br>
+                        <input type="submit" class="btn btn-sm btn-primary" id="envoyer" name="envoyer" value="envoyer">
                     </form><br>
                     <form action="ajouterimage.php" method="post">
                     
-                    <input class="btn btn-primary"  type="file" name ="photo" id="photo">
+                    <input class="btn btn-sm btn-primary"  type="file" name ="photo" id="photo">
                     
-                    <input type="submit" class="btn btn-primary" id="upload" name="upload" value="upload">
+                    <input type="submit" class="btn btn-sm btn-primary" id="upload" name="upload" value="upload">
                     </form><br>
                  <?php   while($row2 = $result3->fetch_assoc())
                     {
@@ -125,7 +125,7 @@ include("auth.php");
                                 <div class='col-sm-12'>
                                     <div class='panel panel-default'>
                                     <div class='panel-body'>
-                                        <p>".$row2['idAuteur']."</p>
+                                        <p><strong>".$row2['idAuteur']."</strong></p>
                                         
                                         
                                     </div>
@@ -162,7 +162,7 @@ include("auth.php");
                             {
                                  
                                        echo(" <div class='col-sm-9'>
-                                        <div class='well'>
+                                        <div class='modal-content'>
                                         Commentaire : 
                                         <p>".$row5['PComment']."</p>
                                         <p>".$row5['Contenu']."</p>
